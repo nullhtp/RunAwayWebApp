@@ -1,8 +1,7 @@
-﻿import { Component, OnInit,Input } from '@angular/core';
+﻿import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { WayService } from './way.service';
 import { Way } from './way';
-
 
 
 @Component({
@@ -13,14 +12,16 @@ export class SidebarComponent implements OnInit {
     title = 'Sidebar!';
     ways: Way[];
     @Input() selectedWay: Way;
+    @Output() selectedWayChange = new EventEmitter<Way>();
 
     constructor(private wayService: WayService) { }
 
     ngOnInit() {
-        this.ways = this.wayService.getWays();
+        this.wayService.getWays().then(ways => this.ways = ways);
     }
 
     setWay(way: Way) {
         this.selectedWay = way;
+        this.selectedWayChange.emit(way);
     }
 }

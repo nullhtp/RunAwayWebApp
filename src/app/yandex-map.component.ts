@@ -8,5 +8,5 @@ import { Way } from './way';
 })
 export class YandexMapComponent {
     title = 'Map!';
-    //@Input() selectedMapWay:Way;
+    @Input() selectedWay:Way;
 }

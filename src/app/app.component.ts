@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-//import { Way } from './way';
+import { Way } from './way';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +9,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
     title = 'RunAway!';
-    //appWay: Way;
+    @Input() way: Way;
 }
