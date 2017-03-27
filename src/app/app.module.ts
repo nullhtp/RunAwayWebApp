@@ -4,17 +4,23 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { SidebarComponent } from './sidebar.component';
+import { YandexMapComponent } from './yandex-map.component';
+
+import { WayService } from './way.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+      AppComponent,
+      SidebarComponent,
+      YandexMapComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [WayService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

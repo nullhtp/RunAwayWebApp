@@ -1,0 +1,10 @@
+﻿<div>
+    {{title}}
+    <ul>
+        <li *ngFor="let way of ways" (click)="setWay(way)">
+            {{way.id}} - {{way.name}}
+        </li>
+    </ul>
+</div>
+
+<div *ngIf="selectedWay">{{selectedWay.name}}</div>
