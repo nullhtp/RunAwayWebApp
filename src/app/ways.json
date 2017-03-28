@@ -1,0 +1,52 @@
+﻿[
+  {
+    "id": 1,
+    "name": "Mr. Nice",
+    "category": "1"
+  },
+  {
+    "id": 2,
+    "name": "Narco",
+    "category": "2"
+  },
+  {
+    "id": 3,
+    "name": "Bombasto",
+    "category": "3"
+  },
+  {
+    "id": 4,
+    "name": "Celeritas",
+    "category": "1"
+  },
+  {
+    "id": 5,
+    "name": "Magneta",
+    "category": "2"
+  },
+  {
+    "id": 6,
+    "name": "RubberMan",
+    "category": "3"
+  },
+  {
+    "id": 7,
+    "name": "Dynama",
+    "category": "1"
+  },
+  {
+    "id": 8,
+    "name": "Dr IQ",
+    "category": "2"
+  },
+  {
+    "id": 9,
+    "name": "Magma",
+    "category": "3"
+  },
+  {
+    "id": 10,
+    "name": "Tornado",
+    "category": "1"
+  }
+]

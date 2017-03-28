@@ -1,8 +1,16 @@
 ﻿<div>
     {{title}}
+    <input [(ngModel)]="selectedCity.id" name="city"  (change)="setCity()"/>
+    <nav>
+        <ul>
+            <li *ngFor="let category of categories" (click)="setCategory(category)">
+                {{category.name}}
+            </li>
+        </ul>
+    </nav>
     <ul>
         <li *ngFor="let way of ways" (click)="setWay(way)">
-            {{way.id}} - {{way.name}}
+            {{way.name}}
         </li>
     </ul>
 </div>
