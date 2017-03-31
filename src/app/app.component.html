@@ -1,6 +1,10 @@
-<h1>
-  {{title}}
-</h1>
-<sidebar [(selectedWay)]="way"></sidebar>
-<yandex-map [(selectedWay)]="way"></yandex-map>
-<div *ngIf="way">{{way.name}}</div>
+<header class="mdl-layout__header mdl-layout__header--waterfall header">
+        <div class="mdl-layout__header-row ">
+            <div class="mdl-textfield mdl-js-textfield
+                   mdl-textfield--align-center">
+                <search-city [(selectedCity)]="city"></search-city>
+            </div>
+        </div>
+</header>
+<sidebar class="mdl-layout__drawer sidebar" [(selectedWay)]="way" [(selectedCity)]="city"></sidebar>
+<yandex-map class="mdl-layout__content" [(selectedWay)]="way"></yandex-map>

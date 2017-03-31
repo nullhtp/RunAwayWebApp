@@ -18,17 +18,19 @@
 
 export class Point {
 
-    latitude: number;
-    longitude: number;
+    latitude: string;
+    longitude: string;
     description: string; 
 }
 
 export class Category {
     id: number;
     name: string;
+    icon: string;
 }
 
 export class City {
     id: string;
     name: string;
+    regionName: string;
 }

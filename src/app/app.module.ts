@@ -6,8 +6,10 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar.component';
 import { YandexMapComponent } from './yandex-map.component';
+import { SearchCityComponent } from './search-city.component';
 
 import { WayService } from './way.service';
+import { DadataService } from './dadata.service';
 
 //import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 //import { InMemoryDataService } from './in-memory-data.service';
@@ -16,7 +18,8 @@ import { WayService } from './way.service';
   declarations: [
       AppComponent,
       SidebarComponent,
-      YandexMapComponent
+      YandexMapComponent,
+      SearchCityComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,7 @@ import { WayService } from './way.service';
       HttpModule,
       //InMemoryWebApiModule.forRoot(InMemoryDataService),
   ],
-  providers: [WayService],
+  providers: [WayService, DadataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

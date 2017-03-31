@@ -2,57 +2,66 @@
 import { Form } from '@angular/forms';
 
 import { WayService } from './way.service';
+import { DadataService } from './dadata.service';
 import { Way, Category, City } from './way';
 
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+
+import 'rxjs/add/observable/of'
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
 
 @Component({
     selector: 'sidebar',
-    templateUrl: './sidebar.component.html'
+    templateUrl: './sidebar.component.html',
+    styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
     title = 'Sidebar!';
-    ways: Way[];
+    ways: Way[] = [];
     categories: Category[] = [{
         id: 0,
-        name: "все"
+        name: "All",
+        icon: "fa-blind"
     },
     {
         id: 1,
-        name: "бег"
+        name: "Run",
+        icon: "fa-blind"
     },
     {
         id: 2,
-        name: "прогулка"
+        name: "Walk",
+        icon: "fa-blind"
     },
     {
         id: 3,
-        name: "велосипед"
+        name: "Cycle",
+        icon: "fa-bicycle"
     }];
     @Input() selectedWay: Way;
+    @Input() selectedCity: City = new City;
     @Output() selectedWayChange = new EventEmitter<Way>();
 
-    selectedCity: City = { id: "1111", name:"Kenigsberg" };
-    selectedCategory: Category = { id: 0, name: "Все" };
+    selectedCategory: Category = { id: 0, name: "Все", icon: "fa-blind" };
 
-    constructor(private wayService: WayService) { }
+    constructor(private wayService: WayService, private dadataService: DadataService) { }
 
     ngOnInit() {
-        //this.wayService.getWays().then(response => this.ways = response).then(way => console.log(this.ways));
-
-        this.wayService.getWays().subscribe(response => this.ways = response);
     }
 
     setCategory(category: Category) {
         this.selectedCategory = category;
         if (category.id == 0) {
             this.wayService.getWays().subscribe(response => this.ways = response);
-            //this.wayService.getWays().then(response => this.ways = response).then(way => console.log(this.ways));
         }
         else {
             this.wayService.getWaysByCategory(this.selectedCity, category).subscribe(response => this.ways = response);
-            //this.wayService.getWaysByCategory(category.id).then(ways => this.ways = ways).then(way=>console.log(this.ways));
         }
-        console.log(this.ways);
+        console.log(this.selectedCity);
     }
 
     setWay(way: Way) {
@@ -61,8 +70,11 @@ export class SidebarComponent implements OnInit {
             .then(way => this.selectedWayChange.emit(this.selectedWay));
     }
 
-    setCity() {
+    setCity(city:City) {
+        //let cities = [];
+        //this.dadataService.getAddress(this.selectedCity.name).subscribe(response => this.cities = response);
+        this.selectedCity = city;
+        console.log(this.selectedCity);
         this.wayService.getWaysByCategory(this.selectedCity, this.selectedCategory).subscribe(response => this.ways = response);
-
     }
 }

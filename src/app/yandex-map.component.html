@@ -1,4 +1,7 @@
-﻿<div>
-    {{title}}
+﻿<div class="page-content">
+    <div *ngIf="selectedWay">{{selectedWay.name}}
+    <button (click)="selectingWay(selectedWay)">Ok </button>
+    </div>
+    
+    <div id="map" style="width: 100%; height:500px;"></div>
 </div>
-<div *ngIf="selectedWay">{{selectedWay.name}}</div>

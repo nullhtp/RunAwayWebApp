@@ -1,18 +1,35 @@
 ﻿<div>
-    {{title}}
-    <input [(ngModel)]="selectedCity.id" name="city"  (change)="setCity()"/>
-    <nav>
-        <ul>
-            <li *ngFor="let category of categories" (click)="setCategory(category)">
-                {{category.name}}
-            </li>
-        </ul>
+    <nav class="mdl-tabs__tab-bar">
+        <a class="mdl-tabs__tab is-active" *ngFor="let category of categories" (click)="setCategory(category)" href="#">{{category.name}}</a>
     </nav>
-    <ul>
-        <li *ngFor="let way of ways" (click)="setWay(way)">
-            {{way.name}}
-        </li>
-    </ul>
 </div>
+
+
+<ul class="demo-list-three mdl-list">
+    <li *ngFor="let way of ways" (click)="setWay(way)" class="mdl-list__item mdl-list__item--three-line">
+        <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-avatar">person</i>
+            <span>{{way.name}}</span>
+            <span class="mdl-list__item-text-body">
+                {{way.description}}
+            </span>
+        </span>
+        <span class="mdl-list__item-secondary-content">
+            <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+        </span>
+    </li>
+</ul>
+
+<!--<div class="list-group">
+    <a *ngFor="let way of ways" (click)="setWay(way)" href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{way.name}}</h5>
+            <small>{{way.distance}} km</small>
+        </div>
+        <p class="mb-1">{{way.description}}</p>
+        <small>{{way.category.name}}</small>
+    </a>
+
+</div>-->
 
 <div *ngIf="selectedWay">{{selectedWay.name}}</div>

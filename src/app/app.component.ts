@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { Way } from './way';
+import { Way, City } from './way';
 
 @Component({
   selector: 'app-root',
@@ -10,4 +10,5 @@ import { Way } from './way';
 export class AppComponent {
     title = 'RunAway!';
     @Input() way: Way;
+    @Input() city: City = new City;
 }

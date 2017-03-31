@@ -1,0 +1,7 @@
+/*.sidebar{
+    width: 350px;
+}
+.header{
+    margin-left:350px !important;
+    width: calc(100% - 350px) !important;
+}*/

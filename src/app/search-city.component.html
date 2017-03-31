@@ -1,0 +1,15 @@
+﻿<div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input #searchCity [(ngModel)]="selectedCity.name" name="city"  class="mdl-textfield__input" type="text"
+                       id="fixed-header-drawer-exp"  (keyup)="search(searchCity.value)" />
+        <label class="mdl-textfield__label" for="tbCity">City...</label>
+    </div>
+
+    <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="fixed-header-drawer-exp">
+        <li *ngFor="let city of serchedCities | async"
+             (click)="setCity(city)" class="mdl-menu__item">
+            {{city.name}}<br/>
+            <small>{{city.regionName}}</small>
+        </li>
+    </ul>
+</div>
